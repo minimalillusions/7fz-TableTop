@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>7fz TableTop</title>
+    <style>
+    .disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    #gridOverlay {
+        opacity: 0.2;
+    }
+    </style>
+</head>
+<body>
+    <h4>VTT Editor</h4>
+    <ul id="mediaList" style="line-height: 45px; list-style-type: none; padding-left: 0px;"></ul>
+
+    <div><button onclick="openMedia()">Medien hinzufügen</button></div><br>
+    <div><input type="text" id="youtubeURL" placeholder="YouTube-URL eingeben">
+    <button onclick="embedYouTubeVideo()">YouTube-Video einbetten</button></div>
+    <p>&nbsp;</p>
+    <div id="gridControls" style="line-height: 35px;">
+		    <span>Rastereinstellungen</span><br>
+        <input type="range" id="gridSlider" min="1" max="100" value="50" step="1" oninput="updateGridFromSlider()"><br>
+        <input type="number" id="verticalLines" value="32" min="1" step="1" oninput="updateGrid()" style="width: 40px;">
+        <input type="number" id="horizontalLines" value="17" min="1" step="1" oninput="updateGrid()" style="width: 40px;"><br>
+        <input type="number" id="lineThickness" value="1" min="1" step="1" oninput="updateGrid()" style="width: 38px;">
+        <input type="color" id="lineColor" value="#000000" oninput="updateGrid()"><br>
+        <input type="range" id="gridOpacitySlider" min="0" max="1" step="0.1" value="0.2" oninput="updateGridOpacity()"><br>
+        <button onclick="setGridSize(24, 17)">24x17</button>
+        <button onclick="setGridSize(45, 24)">45x24</button>
+    </div>
+    <p>&nbsp;</p>
+    <div id="buttonsDiv">
+      <button id="playVideoButton" onclick="playVideoInWindow()" disabled class="disabled">Video im Fenster abspielen</button>
+      <p>Bitte beachten Sie: Aufgrund von Browsersicherheitseinschränkungen müssen Sie das Video beim ersten Mal manuell im Fenster abspielen.</p>
+
+      <button id="setWidthButton" onclick="setWidth('100%')" disabled class="disabled">Volle Breite</button>
+      <button id="setHeightButton" onclick="setHeight('100%')" disabled class="disabled">Volle Höhe</button>
+    </div>
+
+    <script src="fensterVTT.js"></script>
+    <script src="grid.js"></script>
+	<!-- © Elisabeth | Webseite: https://7fz.de/ | 7fz TableTop | Version 1.0 | Lizenziert unter <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> -->
+
+</body>
+</html>
